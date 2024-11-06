@@ -34,7 +34,7 @@ async def run_action():
     # Get environment variables
     GITHUB_EVENT_NAME = os.environ.get('GITHUB_EVENT_NAME')
     GITHUB_EVENT_PATH = os.environ.get('GITHUB_EVENT_PATH')
-    ANTRHOPIC_KEY = os.environ.get('ANTRHOPIC_KEY') or os.environ.get('ANTRHOPIC.KEY')
+    ANTHROPIC_KEY = os.environ.get('ANTHROPIC_KEY') or os.environ.get('ANTHROPIC.KEY')
     GITHUB_TOKEN = os.environ.get('GITHUB_TOKEN')
     # get_settings().set("CONFIG.PUBLISH_OUTPUT_PROGRESS", False)
 
@@ -50,11 +50,11 @@ async def run_action():
         return
 
     # Set the environment variables in the settings
-    if ANTRHOPIC_KEY:
-        get_settings().set("ANTRHOPIC.KEY", ANTRHOPIC_KEY)
+    if ANTHROPIC_KEY:
+        get_settings().set("ANTHROPIC.KEY", ANTHROPIC_KEY)
     else:
         # Might not be set if the user is using models not from OpenAI
-        print("ANTRHOPIC_KEY not set")
+        print("ANTHROPIC_KEY not set")
     get_settings().set("GITHUB.USER_TOKEN", GITHUB_TOKEN)
     get_settings().set("GITHUB.DEPLOYMENT_TYPE", "user")
     enable_output = get_setting_or_env("GITHUB_ACTION_CONFIG.ENABLE_OUTPUT", True)
