@@ -217,10 +217,6 @@ class LiteLLMAIHandler(BaseAiHandler):
                     "api_base": self.api_base,
                 }
 
-            print("KWARS:")
-            print("======")
-            pprint(kwargs)
-
             if get_settings().litellm.get("enable_callbacks", False):
                 kwargs = self.add_litellm_callbacks(kwargs)
 
