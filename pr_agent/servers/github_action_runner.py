@@ -53,7 +53,6 @@ async def run_action():
     if ANTHROPIC_KEY:
         get_settings().set("ANTHROPIC.KEY", ANTHROPIC_KEY)
     else:
-        # Might not be set if the user is using models not from OpenAI
         print("ANTHROPIC_KEY not set")
     get_settings().set("GITHUB.USER_TOKEN", GITHUB_TOKEN)
     get_settings().set("GITHUB.DEPLOYMENT_TYPE", "user")
